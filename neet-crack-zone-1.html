@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEET Crack Zone 🔥</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --dark: #111111;
+    --card: #181818;
+    --gold: #F5A623;
+    --gold-light: #FFD166;
+    --fire: #E8471A;
+    --white: #FFFFFF;
+    --gray: #888;
+    --border: #2a2a2a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 6vw;
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+    color: var(--white);
+  }
+  .nav-logo span { color: var(--gold); }
+
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a {
+    color: #bbb; text-decoration: none; font-size: 0.85rem;
+    font-weight: 500; letter-spacing: 0.5px;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--black);
+    padding: 9px 22px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.82rem;
+    text-decoration: none;
+    letter-spacing: 0.4px;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 100px 6vw 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 100%, rgba(245,166,35,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 80% 20%, rgba(232,71,26,0.07) 0%, transparent 60%),
+      var(--black);
+  }
+
+  /* Floating particles */
+  .particles { position: absolute; inset: 0; pointer-events: none; }
+  .particle {
+    position: absolute;
+    width: 3px; height: 3px;
+    border-radius: 50%;
+    background: var(--gold);
+    opacity: 0;
+    animation: float-up var(--dur, 4s) var(--delay, 0s) infinite ease-in;
+  }
+
+  @keyframes float-up {
+    0%   { opacity: 0; transform: translateY(0) scale(1); }
+    10%  { opacity: 0.8; }
+    90%  { opacity: 0.3; }
+    100% { opacity: 0; transform: translateY(-80vh) scale(0.3); }
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(245,166,35,0.12);
+    border: 1px solid rgba(245,166,35,0.35);
+    color: var(--gold);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  .pulse-dot {
+    display: inline-block;
+    width: 7px; height: 7px;
+    background: var(--gold);
+    border-radius: 50%;
+    margin-right: 8px;
+    animation: pulse 1.4s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(245,166,35,0.6); }
+    50%      { box-shadow: 0 0 0 6px rgba(245,166,35,0); }
+  }
+
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 12vw, 9rem);
+    line-height: 0.9;
+    letter-spacing: 4px;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 8px;
+  }
+
+  .hero-title .line-neet { color: var(--white); }
+  .hero-title .line-crack {
+    color: var(--gold);
+    text-shadow: 0 0 40px rgba(245,166,35,0.5);
+  }
+  .hero-title .line-zone { color: var(--white); }
+
+  .fire-emoji {
+    display: inline-block;
+    animation: flicker 0.8s infinite alternate;
+    font-size: clamp(2rem, 6vw, 5rem);
+  }
+  @keyframes flicker {
+    0%   { transform: scale(1) rotate(-3deg); filter: brightness(1); }
+    100% { transform: scale(1.08) rotate(3deg); filter: brightness(1.3); }
+  }
+
+  .hero-tagline {
+    font-size: clamp(0.8rem, 2vw, 1rem);
+    letter-spacing: 5px;
+    color: var(--gold);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 18px 0 32px;
+    position: relative; z-index: 1;
+  }
+
+  .hero-sub {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    color: #aaa;
+    max-width: 540px;
+    line-height: 1.7;
+    margin-bottom: 44px;
+    position: relative; z-index: 1;
+  }
+
+  .hero-ctas {
+    display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+    position: relative; z-index: 1;
+  }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--gold);
+    color: var(--black);
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-weight: 700; font-size: 0.92rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    box-shadow: 0 0 30px rgba(245,166,35,0.3);
+  }
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 0 40px rgba(245,166,35,0.5);
+  }
+
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: transparent;
+    color: var(--white);
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-weight: 600; font-size: 0.92rem;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ECG line */
+  .ecg-container {
+    position: relative; z-index: 1;
+    margin-top: 56px;
+    width: 100%; max-width: 600px;
+    overflow: hidden; height: 50px;
+  }
+  .ecg-svg { width: 200%; animation: ecg-scroll 3s linear infinite; }
+  @keyframes ecg-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ── STATS BAR ── */
+  .stats-bar {
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 30px 6vw;
+    display: flex; justify-content: center;
+    gap: 0;
+  }
+
+  .stat {
+    text-align: center;
+    flex: 1; max-width: 200px;
+    padding: 0 20px;
+    border-right: 1px solid var(--border);
+  }
+  .stat:last-child { border-right: none; }
+
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.4rem;
+    color: var(--gold);
+    letter-spacing: 1px;
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-top: 4px;
+  }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 90px 6vw; }
+  .section-eye {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    letter-spacing: 2px; line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  .section-sub {
+    color: #999; font-size: 0.95rem; line-height: 1.7;
+    max-width: 520px; margin-bottom: 50px;
+  }
+
+  /* ── PILLARS ── */
+  .pillars { background: var(--dark); }
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+
+  .pillar-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 32px 28px;
+    transition: border-color 0.25s, transform 0.25s;
+    cursor: default;
+  }
+  .pillar-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+  }
+
+  .pillar-icon {
+    font-size: 2.4rem;
+    margin-bottom: 18px;
+    display: block;
+  }
+  .pillar-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem; letter-spacing: 2px;
+    color: var(--gold); margin-bottom: 10px;
+  }
+  .pillar-text { color: #999; font-size: 0.88rem; line-height: 1.65; }
+
+  /* ── SUBJECTS ── */
+  .subjects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .subject-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 26px 22px;
+    display: flex; align-items: center; gap: 16px;
+    transition: all 0.2s;
+    cursor: default;
+  }
+  .subject-card:hover {
+    border-color: var(--gold);
+    background: rgba(245,166,35,0.04);
+  }
+  .subject-icon { font-size: 2rem; flex-shrink: 0; }
+  .subject-name {
+    font-weight: 700; font-size: 0.95rem; margin-bottom: 4px;
+  }
+  .subject-chapters { font-size: 0.75rem; color: var(--gray); }
+
+  /* ── WHATSAPP CTA ── */
+  .whatsapp-section {
+    background: linear-gradient(135deg, #0a1a0a 0%, #111 50%, #0a1a0a 100%);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+  }
+  .wa-card {
+    background: rgba(37,211,102,0.06);
+    border: 1px solid rgba(37,211,102,0.25);
+    border-radius: 20px;
+    padding: 56px 40px;
+    max-width: 680px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+  }
+  .wa-card::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(37,211,102,0.08), transparent 70%);
+    pointer-events: none;
+  }
+  .wa-icon {
+    font-size: 4rem; margin-bottom: 20px; display: block;
+    animation: wa-bounce 2s ease-in-out infinite;
+  }
+  @keyframes wa-bounce {
+    0%,100% { transform: translateY(0); }
+    50%      { transform: translateY(-8px); }
+  }
+  .wa-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    letter-spacing: 2px; margin-bottom: 14px;
+  }
+  .wa-title span { color: #25D366; }
+  .wa-text {
+    color: #999; font-size: 0.95rem; line-height: 1.7;
+    margin-bottom: 32px; max-width: 460px; margin-left: auto; margin-right: auto;
+  }
+  .btn-whatsapp {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: #25D366;
+    color: #fff;
+    padding: 16px 36px;
+    border-radius: 10px;
+    font-weight: 700; font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    box-shadow: 0 0 30px rgba(37,211,102,0.25);
+  }
+  .btn-whatsapp:hover {
+    background: #1ebe5a;
+    transform: translateY(-2px);
+    box-shadow: 0 0 50px rgba(37,211,102,0.4);
+  }
+  .wa-perks {
+    display: flex; justify-content: center; gap: 24px;
+    margin-top: 28px; flex-wrap: wrap;
+  }
+  .wa-perk {
+    font-size: 0.78rem; color: #777;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .wa-perk::before { content: '✓'; color: #25D366; font-weight: 700; }
+
+  /* ── TIPS ── */
+  .tips { background: var(--dark); }
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .tip-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 26px;
+    transition: border-color 0.2s;
+  }
+  .tip-card:hover { border-color: rgba(245,166,35,0.4); }
+  .tip-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem; color: rgba(245,166,35,0.15);
+    line-height: 1; margin-bottom: 12px;
+  }
+  .tip-heading {
+    font-weight: 700; font-size: 1rem;
+    margin-bottom: 8px; color: var(--white);
+  }
+  .tip-body { color: #888; font-size: 0.85rem; line-height: 1.65; }
+
+  /* ── MOTIVATION ── */
+  .motivation { text-align: center; }
+  .quote-block {
+    position: relative; max-width: 700px; margin: 0 auto;
+  }
+  .big-quote {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(5rem, 15vw, 12rem);
+    color: rgba(245,166,35,0.08);
+    line-height: 0.7;
+    position: absolute; top: -20px; left: -10px;
+    pointer-events: none; user-select: none;
+  }
+  .quote-text {
+    font-size: clamp(1.2rem, 3vw, 1.9rem);
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--white);
+    position: relative; z-index: 1;
+    margin-bottom: 20px;
+  }
+  .quote-text em {
+    font-style: normal;
+    background: linear-gradient(90deg, var(--gold), var(--fire));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .quote-attr {
+    color: var(--gray); font-size: 0.82rem; letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    padding: 50px 6vw 30px;
+  }
+  .footer-top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 40px; flex-wrap: wrap; margin-bottom: 36px;
+  }
+  .footer-brand .brand-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem; letter-spacing: 3px;
+  }
+  .footer-brand .brand-name span { color: var(--gold); }
+  .footer-brand p {
+    color: #666; font-size: 0.82rem; line-height: 1.6;
+    max-width: 280px; margin-top: 10px;
+  }
+  .footer-links h4 {
+    font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 14px;
+  }
+  .footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a { color: #666; font-size: 0.85rem; text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-bottom {
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 10px;
+  }
+  .footer-bottom p { color: #444; font-size: 0.78rem; }
+  .footer-bottom span { color: var(--gold); }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .stats-bar { flex-wrap: wrap; gap: 20px; }
+    .stat { border-right: none; }
+    .hero-ctas { flex-direction: column; align-items: center; }
+    .footer-top { flex-direction: column; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">NEET <span>CRACK</span> ZONE</div>
+  <ul class="nav-links">
+    <li><a href="#subjects">Subjects</a></li>
+    <li><a href="#tips">Tips</a></li>
+    <li><a href="#whatsapp">Community</a></li>
+  </ul>
+  <a class="nav-cta" href="https://whatsapp.com/channel/0029VbD5IrwF1YlZNIFmQC1H" target="_blank">Join Channel</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+
+  <!-- Floating particles -->
+  <div class="particles" id="particles"></div>
+
+  <div class="hero-badge reveal">
+    <span class="pulse-dot"></span> India's #1 NEET Prep Community
+  </div>
+
+  <h1 class="hero-title reveal">
+    <div class="line-neet">NEET</div>
+    <div class="line-crack">CRACK</div>
+    <div class="line-zone">ZONE <span class="fire-emoji">🔥</span></div>
+  </h1>
+
+  <p class="hero-tagline reveal">DREAM &bull; BELIEVE &bull; ACHIEVE</p>
+
+  <p class="hero-sub reveal">
+    Your ultimate destination to crack NEET with focused preparation, expert strategies, and a winning mindset. Join thousands of aspirants already on their path to success.
+  </p>
+
+  <div class="hero-ctas reveal">
+    <a class="btn-primary" href="https://whatsapp.com/channel/0029VbD5IrwF1YlZNIFmQC1H" target="_blank">
+      📲 Join WhatsApp Channel
+    </a>
+    <a class="btn-secondary" href="#subjects">Explore Subjects →</a>
+  </div>
+
+  <!-- ECG line -->
+  <div class="ecg-container reveal">
+    <svg class="ecg-svg" viewBox="0 0 800 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polyline
+        points="0,25 80,25 100,25 115,5 125,45 135,10 145,40 155,25 230,25 310,25 325,5 335,45 345,10 355,40 365,25 440,25 520,25 535,5 545,45 555,10 565,40 575,25 650,25 730,25 745,5 755,45 765,10 775,40 785,25 800,25"
+        stroke="#F5A623" stroke-width="1.5" fill="none" opacity="0.6"
+      />
+    </svg>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat reveal">
+    <div class="stat-num" data-target="150" data-suffix="+">0</div>
+    <div class="stat-label">Aspirants</div>
+  </div>
+  <div class="stat reveal">
+    <div class="stat-num" data-target="95" data-suffix="%">0</div>
+    <div class="stat-label">Success Rate</div>
+  </div>
+  <div class="stat reveal">
+    <div class="stat-num" data-target="1000" data-suffix="+">0</div>
+    <div class="stat-label">Questions Shared</div>
+  </div>
+</div>
+
+<!-- PILLARS -->
+<section class="pillars" id="about">
+  <div class="section-eye reveal">Our Foundation</div>
+  <h2 class="section-title reveal">THREE PILLARS OF SUCCESS</h2>
+  <p class="section-sub reveal">Everything we do is built around three core principles that NEET toppers swear by.</p>
+
+  <div class="pillars-grid">
+    <div class="pillar-card reveal">
+      <span class="pillar-icon">🎯</span>
+      <div class="pillar-title">FOCUS</div>
+      <p class="pillar-text">Eliminate distractions and zero in on what truly matters. We share targeted study plans, daily goals, and focus techniques used by AIR rankers.</p>
+    </div>
+    <div class="pillar-card reveal">
+      <span class="pillar-icon">📚</span>
+      <div class="pillar-title">STUDY</div>
+      <p class="pillar-text">Smart study beats hard study. Get chapter-wise notes, NCERT highlights, previous year questions, and curated resources for Physics, Chemistry & Biology.</p>
+    </div>
+    <div class="pillar-card reveal">
+      <span class="pillar-icon">🏆</span>
+      <div class="pillar-title">SUCCESS</div>
+      <p class="pillar-text">Success is a habit. From mock tests to revision strategies, we guide you through every phase of your NEET journey — from Day 1 to Result Day.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SUBJECTS -->
+<section id="subjects">
+  <div class="section-eye reveal">Subjects We Cover</div>
+  <h2 class="section-title reveal">MASTER ALL SUBJECTS</h2>
+  <p class="section-sub reveal">Complete coverage of the NEET syllabus with chapter-wise tips, shortcuts, and high-yield topics.</p>
+
+  <div class="subjects-grid">
+    <div class="subject-card reveal">
+      <span class="subject-icon">⚛️</span>
+      <div>
+        <div class="subject-name">Physics</div>
+        <div class="subject-chapters">45 Chapters • 180 Questions</div>
+      </div>
+    </div>
+    <div class="subject-card reveal">
+      <span class="subject-icon">🧪</span>
+      <div>
+        <div class="subject-name">Chemistry</div>
+        <div class="subject-chapters">30 Chapters • 180 Questions</div>
+      </div>
+    </div>
+    <div class="subject-card reveal">
+      <span class="subject-icon">🌿</span>
+      <div>
+        <div class="subject-name">Botany</div>
+        <div class="subject-chapters">20 Chapters • 90 Questions</div>
+      </div>
+    </div>
+    <div class="subject-card reveal">
+      <span class="subject-icon">🔬</span>
+      <div>
+        <div class="subject-name">Zoology</div>
+        <div class="subject-chapters">20 Chapters • 90 Questions</div>
+      </div>
+    </div>
+    <div class="subject-card reveal">
+      <span class="subject-icon">📝</span>
+      <div>
+        <div class="subject-name">NCERT Mastery</div>
+        <div class="subject-chapters">Lines That Actually Come</div>
+      </div>
+    </div>
+    <div class="subject-card reveal">
+      <span class="subject-icon">🧠</span>
+      <div>
+        <div class="subject-name">PYQs & Mock Tests</div>
+        <div class="subject-chapters">2013–2024 • Full Analysis</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHATSAPP CTA -->
+<section class="whatsapp-section" id="whatsapp">
+  <div class="wa-card reveal">
+    <span class="wa-icon">📲</span>
+    <h2 class="wa-title">Join <span>NEET Crack Zone</span><br>on WhatsApp</h2>
+    <p class="wa-text">
+      Get daily notes, PYQ discussions, motivational content, exam alerts, and strategy drops — all free. Be part of India's most focused NEET community.
+    </p>
+    <a class="btn-whatsapp" href="https://whatsapp.com/channel/0029VbD5IrwF1YlZNIFmQC1H" target="_blank">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      Follow NEET Crack Zone 🔥
+    </a>
+    <div class="wa-perks">
+      <span class="wa-perk">Daily Notes</span>
+      <span class="wa-perk">Free Resources</span>
+      <span class="wa-perk">Exam Updates</span>
+      <span class="wa-perk">Topper Tips</span>
+    </div>
+  </div>
+</section>
+
+<!-- TIPS -->
+<section class="tips" id="tips">
+  <div class="section-eye reveal">Strategy</div>
+  <h2 class="section-title reveal">CRACK NEET SMARTER</h2>
+  <p class="section-sub reveal">Proven strategies followed by every NEET topper. No fluff — just what works.</p>
+
+  <div class="tips-grid">
+    <div class="tip-card reveal">
+      <div class="tip-num">01</div>
+      <div class="tip-heading">NCERT is Your Bible</div>
+      <p class="tip-body">70% of NEET questions come directly from NCERT. Read every line, every diagram caption, every example. Don't skip a single word.</p>
+    </div>
+    <div class="tip-card reveal">
+      <div class="tip-num">02</div>
+      <div class="tip-heading">Solve PYQs Daily</div>
+      <p class="tip-body">Previous Year Questions reveal patterns. Solve at least 30 PYQs every day. You'll notice the same concepts recycled with new wording.</p>
+    </div>
+    <div class="tip-card reveal">
+      <div class="tip-num">03</div>
+      <div class="tip-heading">Revision Over New Topics</div>
+      <p class="tip-body">After your first pass, spend 60% of time revising. What you revise, you retain. What you forget, you lose marks on. Revise ruthlessly.</p>
+    </div>
+    <div class="tip-card reveal">
+      <div class="tip-num">04</div>
+      <div class="tip-heading">Mock Tests = Real Practice</div>
+      <p class="tip-body">Take a full mock test every week under exam conditions. Analyse your mistakes — they are your biggest teachers. Never skip the analysis.</p>
+    </div>
+    <div class="tip-card reveal">
+      <div class="tip-num">05</div>
+      <div class="tip-heading">Bio Gets You the Rank</div>
+      <p class="tip-body">Biology is 360 marks. A score of 330+ in Biology alone can secure your seat. Make it your strongest subject, not an afterthought.</p>
+    </div>
+    <div class="tip-card reveal">
+      <div class="tip-num">06</div>
+      <div class="tip-heading">Protect Your Sleep</div>
+      <p class="tip-body">A rested brain retains more in 4 hours than an exhausted brain in 10. Sleep 7–8 hours. Your memory consolidates during sleep — use it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MOTIVATION -->
+<section class="motivation">
+  <div class="quote-block reveal">
+    <div class="big-quote">"</div>
+    <p class="quote-text">
+      The doctor you dream of becoming is <em>already inside you.</em><br>
+      NEET is just the door — we'll help you find the key.
+    </p>
+    <p class="quote-attr">— NEET Crack Zone</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="brand-name">NEET <span>CRACK</span> ZONE 🔥</div>
+      <p>India's most dedicated NEET preparation community. Dream it. Believe it. Achieve it.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#subjects">Subjects</a></li>
+        <li><a href="#tips">Study Tips</a></li>
+        <li><a href="#whatsapp">Join Community</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="https://whatsapp.com/channel/0029VbD5IrwF1YlZNIFmQC1H" target="_blank">WhatsApp Channel</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 <span>NEET Crack Zone</span>. All rights reserved.</p>
+    <p>Made with <span>❤️</span> for every NEET aspirant</p>
+  </div>
+</footer>
+
+<script>
+  /* ── Scroll reveal ── */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 60);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  /* ── Particles ── */
+  const container = document.getElementById('particles');
+  for (let i = 0; i < 30; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.cssText = `
+      left: ${Math.random() * 100}%;
+      bottom: ${Math.random() * 30}%;
+      --dur: ${3 + Math.random() * 5}s;
+      --delay: ${Math.random() * 6}s;
+      width: ${1 + Math.random() * 3}px;
+      height: ${1 + Math.random() * 3}px;
+      background: ${Math.random() > 0.5 ? '#F5A623' : '#E8471A'};
+    `;
+    container.appendChild(p);
+  }
+
+  /* ── Counter animation ── */
+  function animateCount(el) {
+    const target = parseInt(el.dataset.target);
+    const suffix = el.dataset.suffix || '';
+    const dur = 1800;
+    const step = dur / 60;
+    let current = 0;
+    const inc = target / (dur / step);
+    const timer = setInterval(() => {
+      current = Math.min(current + inc, target);
+      el.textContent = Math.floor(current) + suffix;
+      if (current >= target) clearInterval(timer);
+    }, step);
+  }
+
+  const statNums = document.querySelectorAll('.stat-num[data-target]');
+  const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        animateCount(e.target);
+        statObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  statNums.forEach(el => statObserver.observe(el));
+</script>
+</body>
+</html>
